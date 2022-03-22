@@ -6,19 +6,41 @@ We present our experiments on RuATD Shared Task Dataset that containts sentences
 Our pipeline was constructed in a following way:
 ![alt text](https://github.com/EkaterinaVoloshina/RuATD/raw/main/img/pipeline.jpg "Pipeline")
 
-We experimented with models for binary classification: 
+We experimented with models for binary classification (baselines are marked as bold): 
 
 | encoding      | classifier   | binary: accuracy |
 |---------------|--------------|------------------|
 | BoW+TF-IDF    | FNN          | 0.73             |
 | word2vec      | LSTM         | 0.59             |
 | character     | CNN          | 0.66             |
-| Native LM     | fine-tuning  | 0.81             |
+| RuBERT-tiny   | fine-tuning  | 0.81             |
 | text features | FNN          | 0.6              |
 | text features | Logreg       | 0.61             |
 | text features | RandomForest | 0.64             |
 | **BERT**          |              | **0.79622**          |
 | **TF-DF**         | Logreg       | **0.63562**          |
+
+We chose RuBERT-tiny as the best model.
+
+Then we tried different models on classification of texts that RuBERT-tiny recognised as "non-human".
+
+| encoding      | classifier   | accuracy    | macro f1-score |
+|---------------|--------------|-------------|----------------|
+| TF-IDF        | FNN          | 0.3         | 0.29           |
+| word2vec      | LSTM         | 0.29        | 0.25           |
+| character     | CNN          | 0.37        | 0.32           |
+| text features | FNN          | 0.26        | 0.17           |
+| text features | Logreg       | 0.22        | 0.1            |
+| text features | RandomForest | 0.27        | 0.24           |
+| Combo Model   |              | 0.39        | 0.35           |
+
+We chose Combo model that includes parts of other models' acrhitectures in the following way:
+
+![alt text](https://github.com/EkaterinaVoloshina/RuATD/raw/main/img/photo_2022-03-22_00-28-59.jpg)
+
+Combined with RuBERT-tiny, the Combo model shows 0.5 accuracy.
+
+For details see [our presentation](https://github.com/EkaterinaVoloshina/RuATD/blob/main/final%20presentation.pdf) (in Russian).
 
 
 
