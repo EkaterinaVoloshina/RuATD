@@ -4,7 +4,7 @@
 We present our experiments on RuATD Shared Task Dataset.
 
 Our pipeline was constructed in a following way:
-![alt text](https://github.com/EkaterinaVoloshina/RuATD/img/pipeline.jpg "Pipeline")
+![alt text](https://github.com/EkaterinaVoloshina/RuATD/raw/main/img/pipeline.jpg "Pipeline")
 
 
 
